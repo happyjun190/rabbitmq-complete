@@ -19,7 +19,7 @@ public class Receiver implements ChannelAwareMessageListener {
 	public CountDownLatch getLatch() {
 		return latch;
 	}
-
+	
 	
 	@Override
 	public void onMessage(Message message, Channel channel) throws Exception {
