@@ -73,11 +73,15 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("Waiting five seconds...");
-        Thread.sleep(5000);
-        System.out.println("Sending message...");
-        rabbitTemplate.convertAndSend(queueName, "Hello from RabbitMQ!");
-        receiver().getLatch().await(10000, TimeUnit.MILLISECONDS);
-        context.close();
+        System.out.println("Waiting one seconds...");
+        Thread.sleep(1000);
+        int i = 0;
+        while (true) {
+        	i++;
+            System.out.println("Sending message...");
+            rabbitTemplate.convertAndSend(queueName, "Hello from RabbitMQ!("+i+")");
+            receiver().getLatch().await(1000, TimeUnit.MILLISECONDS);
+        }
+        
     }
 }
