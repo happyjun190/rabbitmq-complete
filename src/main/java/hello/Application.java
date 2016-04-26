@@ -64,7 +64,8 @@ public class Application implements CommandLineRunner {
 
 	@Bean
 	MessageListenerAdapter listenerAdapter(Receiver receiver) {
-		return new MessageListenerAdapter(receiver, "receiveMessage");
+		//return new MessageListenerAdapter(receiver, "receiveMessage");
+		return new MessageListenerAdapter(receiver);
 	}
 
     public static void main(String[] args) throws InterruptedException {

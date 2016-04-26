@@ -25,6 +25,7 @@ public class Receiver implements ChannelAwareMessageListener {
 	public void onMessage(Message message, Channel channel) throws Exception {
 		System.out.println("Received <" + new String(message.getBody()) + ">");
 		channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+		//channel.basicNack(message.getMessageProperties().getDeliveryTag(), false, false);
 	}
 
 }
